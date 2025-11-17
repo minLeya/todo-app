@@ -1,16 +1,26 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import "./components/TodoItem";
+import TodoList from "./components/TodoList";
+import TodoInput from "./components/TodoInput";
+
+const mockTodos = [
+  { id: 1, text: "Изучить React", completed: false },
+  { id: 2, text: "Сделать проект Todo App", completed: false },
+  { id: 3, text: "Попрактиковаться с Tailwind", completed: true },
+];
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState(mockTodos);
+
+  const addTodo = (newTodo) => {
+    setTodos([...todos, newTodo]);
+  }
 
   return (
     <>
-
-      <h1 className="text-3xl font-bold text-purple-600">Привет, Tailwind!</h1>
-      <button className="btn btn-primary">Проверка DaisyUI</button>
+      <TodoInput addTodo={addTodo}/>
+      <TodoList todos={todos}/>
     </>
   );
 }
