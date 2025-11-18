@@ -1,7 +1,9 @@
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, setTodoCompleted, deleteTodo}) => {
     return (
         <div>
-            {todo.text}
+            <span>{todo.text}</span>
+            <button onClick={()=>setTodoCompleted(todo.id)}>Done</button>
+            <button onClick={()=>deleteTodo(todo.id)}>Delete</button>
         </div>
     );
 }

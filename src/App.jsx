@@ -17,10 +17,30 @@ function App() {
     setTodos([...todos, newTodo]);
   }
 
+  const setTodoCompleted = (id) => {
+    setTodos(
+      todos.map(todo => {
+        if (todo.id === id) {
+          return {...todo, completed: true};
+        } else {
+          return todo;
+        }
+      })
+    );
+  }
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
   return (
     <>
       <TodoInput addTodo={addTodo}/>
-      <TodoList todos={todos}/>
+      <TodoList
+          todos={todos}
+          setTodoCompleted={setTodoCompleted}
+          deleteTodo={deleteTodo}
+      />
     </>
   );
 }
