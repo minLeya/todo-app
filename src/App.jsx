@@ -34,14 +34,15 @@ function App() {
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
+      <h1 className="text-2xl font-bold mb-6">Todo App</h1>
       <TodoInput addTodo={addTodo}/>
       <TodoList
           todos={todos}
           setTodoCompleted={setTodoCompleted}
           deleteTodo={deleteTodo}
       />
-    </>
+    </div>
   );
 }
 

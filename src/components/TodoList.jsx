@@ -2,7 +2,7 @@ import TodoItem from "./TodoItem";
 
 const TodoList = ({ todos, setTodoCompleted, deleteTodo }) => {
   return (
-    <div>
+    <div className="flex flex-col">
       {todos.map((todo) => {
         return <TodoItem
                   key={todo.id}
